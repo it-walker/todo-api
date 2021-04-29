@@ -12,36 +12,44 @@ import {
 } from '@nestjs/common';
 import { TaskPropertyDto } from './dto/task-property.dto';
 import { TaskStatusPipe } from './pipe/task-status.pipe';
+import { Task } from '../database/entities/task.entity';
+import { TasksService } from './tasks.service';
 
 @Controller('tasks')
 export class TasksController {
+  constructor(private readonly tasksService: TasksService) {}
+
   @Get()
-  getTasks() {
-    return 'getTasks Success!';
+  async getTasks(): Promise<Task[]> {
+    return await this.tasksService.getTasks();
   }
 
   @Get('/:id')
-  getTaskById(@Param('id', ParseIntPipe) id: number) {
-    return `getTaskById Success! Parameter [id:${id}]`;
+  async getTaskById(@Param('id', ParseIntPipe) id: number): Promise<Task> {
+    return await this.tasksService.getTaskById(id);
+    // return `getTaskById Success! Parameter [id:${id}]`;
   }
 
   @Post()
   @UsePipes(ValidationPipe)
-  createTask(@Body() taskPropertyDto: TaskPropertyDto) {
-    const { title, description } = taskPropertyDto;
-    return `createTask Success! Prameter [title:${title}, descritpion:${description}]`;
+  async createTask(@Body() taskPropertyDto: TaskPropertyDto): Promise<Task> {
+    // const { title, description } = taskPropertyDto;
+    // return `createTask Success! Prameter [title:${title}, descritpion:${description}]`;
+    return await this.tasksService.createTask(taskPropertyDto);
   }
 
   @Delete('/:id')
-  deleteTask(@Param('id', ParseIntPipe) id: number) {
-    return `deleteTask Success! Prameter [id:${id}]`;
+  async deleteTask(@Param('id', ParseIntPipe) id: number): Promise<void> {
+    // return `deleteTask Success! Prameter [id:${id}]`;
+    await this.tasksService.deleteTask(id);
   }
 
   @Patch('/:id')
-  updateTask(
+  async updateTask(
     @Param('id', ParseIntPipe) id: number,
     @Body('status', TaskStatusPipe) status: string,
   ) {
-    return `updateTask Success! Prameter [id:${id}, status:${status}]`;
+    // return `updateTask Success! Prameter [id:${id}, status:${status}]`;
+    return await this.tasksService.updateTask(id, status);
   }
 }
