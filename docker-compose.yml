@@ -1,0 +1,16 @@
+version: '3'
+services:
+  db:
+    container_name: todo_db
+    image: mysql:5.7
+    volumes:
+      - ./docker/mysql/db_data:/var/lib/mysql
+      - ./docker/mysql/db_logs:/var/log/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    ports:
+      - ${DATABASE_PORT}:3326
+    command: --port 3326
+    environment:
+      - MYSQL_DATABASE=${DATABASE_NAME}
+      - MYSQL_ROOT_PASSWORD=${DATABASE_PASSWORD}
+      - TZ=${TZ:-Asia/Tokyo}
