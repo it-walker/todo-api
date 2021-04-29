@@ -1,7 +1,7 @@
 import { Test } from '@nestjs/testing';
 import { TasksController } from './tasks.controller';
 import { TasksService } from './tasks.service';
-import { Task } from '../database/entities/task.entity';
+import { Task } from '@/api/database/entities/task.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
