@@ -8,9 +8,8 @@ services:
       - ./docker/mysql/db_logs:/var/log/mysql
       - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     ports:
-      - ${DATABASE_PORT}:3326
+      - 3326:3326
     command: --port 3326
     environment:
-      - MYSQL_DATABASE=${DATABASE_NAME}
-      - MYSQL_ROOT_PASSWORD=${DATABASE_PASSWORD}
-      - TZ=${TZ:-Asia/Tokyo}
+      - MYSQL_DATABASE=todo_development
+      - MYSQL_ROOT_PASSWORD=root
