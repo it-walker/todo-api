@@ -88,7 +88,7 @@ describe('TasksController', () => {
       const baseTask = createTask();
       const status = 'AFTER';
       const expectedValue = createTask(undefined, undefined, undefined, status);
-console.log(expectedValue)
+
       jest
         .spyOn(tasksService, 'updateTask')
         .mockImplementation(async () => expectedValue);
