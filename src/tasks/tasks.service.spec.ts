@@ -1,7 +1,10 @@
-import { NotFoundException } from '@nestjs/common';
+import {
+  InternalServerErrorException,
+  NotFoundException,
+} from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Task } from '../database/entities/task.entity';
+import { Task } from '@/api/database/entities/task.entity';
 import { TasksService } from './tasks.service';
 
 const mockRepository = () => ({
@@ -71,6 +74,16 @@ describe('TasksService', () => {
         title: mockTask.title,
         description: mockTask.description,
         status: 'OPEN',
+      });
+    });
+
+    it('追加処理で例外が発生すること', async () => {
+      const mockTask = { title: 'mockTitle', description: 'mockDesc' };
+      taskRepository.save.mockImplementation(() => Promise.reject(new Error()));
+      expect(taskRepository.save).not.toHaveBeenCalled();
+
+      await tasksService.createTask(mockTask).catch((err) => {
+        expect(err instanceof InternalServerErrorException).toBeTruthy();
       });
     });
   });
