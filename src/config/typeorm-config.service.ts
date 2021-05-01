@@ -15,25 +15,7 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       database: configService.get<string>('DB_NAME'),
       entities: [__dirname + '/../**/*.entity.{js,ts}'],
       synchronize: configService.get<boolean>('DB_SYNC', false),
-      //   synchronize: this.strToBoolean(
-      //     configService.get<string>('DB_SYNC', 'false'),
-      //   ),
+      charset: 'utf8mb4',
     };
-  }
-  // get<boolean>が上手く変換してくれないため泣く泣く対応
-  private strToBoolean(boolStr: string): boolean {
-    switch (boolStr.toLowerCase().trim()) {
-      case 'true':
-      case 'yes':
-      case '1':
-        return true;
-      case 'false':
-      case 'no':
-      case '0':
-      case null:
-        return false;
-      default:
-        return (boolStr as unknown) as boolean;
-    }
   }
 }
