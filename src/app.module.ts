@@ -1,8 +1,8 @@
-import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { TypeOrmConfigService } from '@/api/config/typeorm-config.service';
-import { TasksModule } from '@/api/tasks/tasks.module';
+import { Module } from '@nestjs/common'
+import { ConfigModule } from '@nestjs/config'
+import { TypeOrmModule } from '@nestjs/typeorm'
+import { TypeOrmConfigService } from '@/api/config/typeorm-config.service'
+import { TasksModule } from '@/api/tasks/tasks.module'
 
 @Module({
   imports: [

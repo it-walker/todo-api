@@ -1,0 +1,32 @@
+{
+  "extends": [
+    // チェック項目をひとつずつ追加しなくても ESLint が推奨するチェック項目でまとめてチェックすることができる
+    // これだけでも基本的なソースの不備を手軽にチェックできる
+    "eslint:recommended",
+    // 型を必要としないプラグインの推奨ルールをすべて有効
+    "plugin:@typescript-eslint/recommended",
+    // 型を必要とするプラグインの推奨ルールをすべて有効
+    // TypeScript のビルド時間分が増えるので、気になる場合は設定を外す
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "prettier"
+  ],
+  "plugins": ["@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "env": { "browser": true, "node": true, "es6": true },
+  "rules": {
+    "quotes": ["warn", "single"],
+    "@typescript-eslint/no-unsafe-call": 0,
+    "@typescript-eslint/no-unsafe-member-access": 0,
+    "@typescript-eslint/no-unsafe-return": 0,
+    "@typescript-eslint/no-unsafe-assignment": 0,
+    "@typescript-eslint/unbound-method": 0,
+    "@typescript-eslint/no-floating-promises": 0,
+    "@typescript-eslint/await-thenable": 0,
+    "@typescript-eslint/restrict-template-expressions": 0,
+    "@typescript-eslint/require-await": 0
+  }
+}
