@@ -1,11 +1,11 @@
-import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm';
+import { Injectable } from '@nestjs/common'
+import { ConfigService } from '@nestjs/config'
+import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm'
 
 @Injectable()
 export class TypeOrmConfigService implements TypeOrmOptionsFactory {
   createTypeOrmOptions(): TypeOrmModuleOptions {
-    const configService = new ConfigService();
+    const configService = new ConfigService()
     return {
       type: 'mysql',
       host: configService.get<string>('DB_HOSTNAME'),
@@ -16,6 +16,6 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       entities: [__dirname + '/../**/*.entity.{js,ts}'],
       synchronize: configService.get<boolean>('DB_SYNC', false),
       charset: 'utf8mb4',
-    };
+    }
   }
 }
