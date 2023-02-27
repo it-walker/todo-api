@@ -832,10 +832,10 @@
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.46.tgz#0fb6bfbbeabd7a30880504993369c4bf1deab1fe"
   integrity sha512-laIjwTQaD+5DukBZaygQ79K1Z0jb1bPEMRrkXSLjtCcZm+abyp5YbrqpSLzD42FwWW6gK/aS4NYpJ804nG2brg==
 
-"@types/express-list-endpoints@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@types/express-list-endpoints/-/express-list-endpoints-4.0.1.tgz#ae8b03e83e873e13c5e1105fc1a9ffe367eeebfa"
-  integrity sha512-hWeurpN0+u8JUTbLpSzQLxQbrOszRkba7LKlLPj8L8YH4DUlGgbIzzNwrc7563CV+Hr10QrpZKlQBAasK6x9KQ==
+"@types/express-list-endpoints@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@types/express-list-endpoints/-/express-list-endpoints-6.0.0.tgz#4efd6203f20eaa90897b58c616659da102901837"
+  integrity sha512-TIi9ggtP1HzV8FmFmwZ/NV3B+qnRw9XslEhG8Qb/50iLDOmq/7radpC8SKXSCvI74FaOrD6I4dF+q+ml5AEYag==
   dependencies:
     "@types/express" "*"
 
@@ -2525,10 +2525,10 @@ expect@^26.6.2:
     jest-message-util "^26.6.2"
     jest-regex-util "^26.0.0"
 
-express-list-endpoints@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/express-list-endpoints/-/express-list-endpoints-5.0.0.tgz#819b6ff0fb96d975b02cacb704757b200c4f4dc3"
-  integrity sha512-bjypzWA7AQ64VNLbQ3GqwDzLxqK1NIHFRJvFDb7wg0S7YwquI8l8XZsmF0yiEA22gN+p+G6+1KDcXxb6Dn3OaA==
+express-list-endpoints@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/express-list-endpoints/-/express-list-endpoints-6.0.0.tgz#903f000b0cc954bbc35ca44e7aa3917e5292d0c2"
+  integrity sha512-1I30bSVego+AU/eSsX/bV2xrOXW5tFhsuXZp7wZd9396bAAxH7KHaAwLXQYra0Aw33xA67HmNiceGf2SOvXaLg==
 
 express@4.17.1:
   version "4.17.1"
